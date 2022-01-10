@@ -12,8 +12,12 @@ import {
   Label, 
   ButtonPrimary} from '../../components/Global'
 
+import Navbar from '../../components/Nav/Navbar'
+
 export default function CreateProduct() {
  return (
+   <>
+     <Navbar/>
      <div>
        <Container>
          <Row>
@@ -99,6 +103,11 @@ export default function CreateProduct() {
                       </Select>
                     </ColMed4>
                   </FormGroup>
+                  <FormGroup>
+                    <ColMed4>
+                      <ButtonPrimary>Submit</ButtonPrimary>
+                    </ColMed4>
+                  </FormGroup>
                 </Form>
               </div>
             </div>
@@ -106,5 +115,6 @@ export default function CreateProduct() {
          </Row>
        </Container>
      </div>
+    </>
  );
 }
