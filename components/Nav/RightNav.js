@@ -23,6 +23,7 @@ const Ul = styled.ul`
     transition: transform 0.3s ease-in-out;
     li {
       color: #fff;
+      padding: 18px 20px;
     }
   }
 `;

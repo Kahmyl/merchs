@@ -16,14 +16,17 @@ import {
 } from "../../Components/MainComp"
 
 const Login = () => {
-    const [identity, setIdentity] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(identity, password)
-        const data = {identity, password}
-            axios.post('http://localhost:5000/register', data)
+        console.log(email, password)
+        const data = {email, password}
+        axios.post('http://localhost:5000/login', data, {withCredentials:true})
+			    .then(response => {
+					console.log(response.data)
+				});
       }
 
     return ( 
@@ -35,8 +38,8 @@ const Login = () => {
           <MainContainer onSubmit={handleSubmit}>
             <WelcomeText>Sign In</WelcomeText>
             <InputContainer>
-              <Input type="text" placeholder="Username or Email" value={identity} 
-              onChange={(e) => setIdentity(e.target.value) } />
+              <Input type="text" placeholder="Username or Email" value={email} 
+              onChange={(e) => setEmail(e.target.value) } />
             </InputContainer>
             <InputContainer>
               <Input type="password" placeholder="Password" value={password}

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function Button({ content, disabled }) {
+export default function Button({ content}) {
   return <StyledButton >{content}</StyledButton>;
 }
 
