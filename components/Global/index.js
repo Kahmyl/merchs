@@ -148,3 +148,8 @@ border-color: #3490dc;
     box-shadow: 0 0 0 0.2rem rgba(82, 161, 225, 0.5);
 }
 `
+
+export const ErrorText = styled.p`
+color: crimson;
+text-align: center;
+`

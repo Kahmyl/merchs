@@ -3,7 +3,7 @@ import Link from "next/link";
 import axios from "axios"
 import Button from "../../Components/Button";
 import Input from "../../Components/Input";
-import Navbar from '../../components/Nav/Navbar'
+import Navbar from '../../components/AdminNav/Navbar'
 import Router from 'next/router'
 import { Formik } from 'formik';
 import loginSchema from "../../Schema/loginSchema";
@@ -33,10 +33,6 @@ const Login = () => {
         validationSchema={loginSchema}
         onSubmit={(values) =>{
           console.log(values)
-          axios.post('http://localhost:5000/login', values, {withCredentials:true})
-			      .then(response => {
-				  	console.log(response.data)
-				  });
         }}
         >
           {({handleChange, handleSubmit, values, errors, touched, handleBlur}) => (

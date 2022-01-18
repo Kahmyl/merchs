@@ -1,67 +1,38 @@
 import styled from "styled-components";
 
 
-const Label = styled.label`
-  
-`;
-
-
-const Input = styled.input`
-&:hover + ${Label},
-&:focus + ${Label}{
-    transform: scale(1.02);
-    background: black
+const File = () => {
+    return ( 
+        <Wrapper>
+            <Click>Upload file</Click>
+            <input type="file"/>
+        </Wrapper>
+     );
 }
-&:focus + ${Label} {
-    outline: 1px solid #000;
-    outline: -webkit-focus-ring-color auto 2px;
-  }
-  position: absolute
-  z-index: 10;
-  top: 0;
-  right: 0;
-`;
+ 
+export default File;
 
-const P = styled.p`
-position: absolute;
-bottom: -35px;
-left: 10px;
-font-size: 0.85rem;
-color: #000;
+
+const Wrapper = styled.div`
+position: relative;
+overflow: hidden;
+display: inline-block;
+margin-bottom: 25px;
+input[type=file]{
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
 `
 
-const Div = styled.div`
-    display: inline-block;
-    position: relative;
-    ${Label}{
-        display: block;
-        width: 200px;
-        height: 50px;
-        border-radius: 25px;
-        background: linear-gradient(40deg, #ff6ec4, #7873f5);
-        box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        font-weight: bold;
-        cursor: pointer;
-        transition: transform .2s ease-out;
-    }
+const Click = styled.button`
+border: 2px solid gray;
+color: gray;
+background-color: white;
+padding: 8px 20px;
+border-radius: 8px;
+font-size: 20px;
+font-weight: bold;
 `
-
-
-
-
-export default function Image({ type, content, value, onChange }) {
-  return (
-    <Div>
-        <Input type={type} value={value} onChange={onChange} />
-        <Label>
-            {content}
-            <P></P>
-        </Label>
-    </Div>
-  );
-}
-

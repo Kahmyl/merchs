@@ -3,10 +3,10 @@ import Link from "next/link";
 import axios from "axios"
 import Button from "../../Components/Button";
 import Input from "../../Components/Input";
-import Navbar from '../../components/Nav/Navbar'
+import Navbar from '../../components/AdminNav/Navbar'
 import Router from 'next/router'
 import { Formik } from 'formik';
-import loginSchema from "../../Schema/loginSchema";
+import registerSchema from "../../Schema/loginSchema";
 import { ErrorText } from "../../Components/Global";
 import {
     MainContainer, 
@@ -18,7 +18,7 @@ import {
     ForgotPassword
 } from "../../Components/MainComp"
 
-const Login = () => {
+const Register = () => {
     
     const [isdisabled, setIsDisabled] = useState(false)
 
@@ -29,24 +29,29 @@ const Login = () => {
         </div>
         <div>
         <Formik
-        initialValues={{email: '', password: ''}}
-        validationSchema={loginSchema}
+        initialValues={{name: '', email: '', password: ''}}
+        validationSchema={registerSchema}
         onSubmit={(values) =>{
           console.log(values)
-          axios.post('http://localhost:5000/login', values, {withCredentials:true})
-			      .then(response => {
-				  	console.log(response.data)
-				  });
         }}
         >
           {({handleChange, handleSubmit, values, errors, touched, handleBlur}) => (
             <MainContainer onSubmit={handleSubmit}>
-              <WelcomeText>Sign In</WelcomeText>
+              <WelcomeText>Sign Up</WelcomeText>
+              <InputContainer>
+                <ErrorText>{touched.name && errors.name}</ErrorText>
+                <Input 
+                  type="text" 
+                  placeholder="Name" 
+                  onChange={handleChange('name')}
+                  value={values.name}
+                  onBlur={handleBlur('name')} />
+              </InputContainer>
               <InputContainer>
                 <ErrorText>{touched.email && errors.email}</ErrorText>
                 <Input 
                   type="text" 
-                  placeholder="Username or Email" 
+                  placeholder="Email" 
                   onChange={handleChange('email')}
                   value={values.email}
                   onBlur={handleBlur('email')} />
@@ -64,7 +69,7 @@ const Login = () => {
               <ButtonContainer>
                 <Button type="submit" content="Sign In" disabled={isdisabled} />
               </ButtonContainer>
-              <LoginWith><Link href="/User"><a>Create an accout</a></Link></LoginWith>
+              <LoginWith><Link href="/User"><a>Login</a></Link></LoginWith>
               <HorizontalRule />
             </MainContainer>
           )}
@@ -74,4 +79,4 @@ const Login = () => {
      );
 }
  
-export default Login;
+export default Register;

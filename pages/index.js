@@ -4,6 +4,7 @@ import axios from 'axios'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Navbar from '../components/Nav/Navbar'
+import { Container } from '../Components/Global'
 
 export default function Home() {
 
@@ -16,7 +17,7 @@ export default function Home() {
       <div>
         <Navbar/>
       </div>
-      <div>Welcome Home</div>
+      <Container>Welcome Home</Container>
     </div>
   )
 }

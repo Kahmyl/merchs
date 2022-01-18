@@ -47,12 +47,11 @@ const RightNav = ({ open }) => {
 
     return (
       <Ul open={open}>
-        <li><Link href="/"><a>Home</a></Link></li>
-        <li><Link href="/store"><a>Store</a></Link></li>
-        <li><Link href="/cart"><a>Cart</a></Link></li>
-        <li><Link href="/contact"><a>Contact us</a></Link></li>
-        <li><Link href="/users/login"><a>Sign In</a></Link></li>
-        <li><Link href="/users"><a> Sign Up </a></Link></li>
+        <li><Link href="/admin"><a>Home</a></Link></li>
+        <li><Link href="admin/products"><a>Products</a></Link></li>
+        <li><Link href="admin/categories"><a>Categories</a></Link></li>
+        <li><Link href="/admin/login"><a>Sign In</a></Link></li>
+        <li><Link href="/admin/register"><a> Sign Up </a></Link></li>
       </Ul>
     );
 }
