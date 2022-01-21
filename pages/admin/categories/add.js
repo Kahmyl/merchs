@@ -8,16 +8,9 @@ const AddProduct = () => {
     return ( 
     <Container>
         <Wrapper>
-            <Text>ADD PRODUCT</Text>
+            <Text>ADD CATEGORY</Text>
             <Form>
                 <Input placeholder="Name"/>
-                <Textarea>Description</Textarea>
-                <Select>
-                    <option>Fashion</option>
-                    <option>Electronics</option>
-                </Select>
-                <Input placeholder="Price"/>
-                <File/>
                 <Submit>Submit</Submit>
             </Form>
         </Wrapper>

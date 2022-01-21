@@ -14,6 +14,7 @@ export default function Home() {
 
   return (
     <div>
+      <Head><title>Merchs</title></Head>
       <div>
         <Navbar/>
       </div>

@@ -33,6 +33,10 @@ const Register = () => {
         validationSchema={registerSchema}
         onSubmit={(values) =>{
           console.log(values)
+          axios.post('http://localhost:5000/register', values, {withCredentials:true})
+		    .then(response => {
+		    	console.log(response.data)
+		    });
         }}
         >
           {({handleChange, handleSubmit, values, errors, touched, handleBlur}) => (
