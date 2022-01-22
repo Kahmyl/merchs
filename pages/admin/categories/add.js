@@ -1,18 +1,39 @@
 import styled from "styled-components";
+import { Formik } from 'formik'
 import { Container } from "../../../Components/Global";
-import File from "../../../components/Form/File";
+import axios from "axios";
 
 
 
 const AddProduct = () => {
+
     return ( 
     <Container>
         <Wrapper>
             <Text>ADD CATEGORY</Text>
-            <Form>
-                <Input placeholder="Name"/>
-                <Submit>Submit</Submit>
-            </Form>
+            <Formik
+              initialValues={{name: ''}}
+              onSubmit={values => {
+                console.log(values)
+                axios.post('http://localhost:5000/api/admin/category/create', values)
+                .then(response => {
+                    console.log(response.data)
+                })
+              }}
+            >
+             {({handleChange, handleSubmit, values, errors, touched, handleBlur}) => (
+              <Form onSubmit={handleSubmit}>
+                  <Input 
+                  type = "text"
+                  placeholder="Name"
+                  onChange={handleChange('name')}
+                  value={values.name}
+                  onBlur={handleBlur('name')}
+                  />
+                  <Submit>Submit</Submit>
+              </Form>
+             )}
+            </Formik>
         </Wrapper>
     </Container>
      );
