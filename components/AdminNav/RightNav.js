@@ -8,7 +8,7 @@ const Ul = styled.ul`
   display: flex;
   flex-flow: row nowrap;
   li {
-    padding: 1px 20px;
+    padding: 10px 20px;
   }
   @media (max-width: 768px) {
     flex-flow: column nowrap;
@@ -27,6 +27,8 @@ const Ul = styled.ul`
     }
   }
 `;
+
+
 
 
 const RightNav = ({ open }) => {

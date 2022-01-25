@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
 
-const File = () => {
+const File = ({type, onChange}) => {
     return ( 
         <Wrapper>
             <Click>Upload file</Click>
-            <input type="file"/>
+            <input 
+            type={type}
+            onChange={onChange}
+            />
         </Wrapper>
      );
 }
