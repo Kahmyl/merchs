@@ -28,7 +28,7 @@ export const getCart = () => {
 }
 
 export const updateCookieItem = (productId, action) => {
-  let cart = getCart();
+//   let cart = getCart();
   if (action == "add") {
     if (cart[productId] == undefined) {
       cart[productId] = { quantity: 1 };

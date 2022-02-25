@@ -4,7 +4,7 @@ import { ADD_TO_CART, REMOVE_FROM_CART } from "./cartTypes"
 
 const initialState = {
     cart: {},
-    number_of_items: getCartItemsAndTotal()
+    number_of_items: 0
 
 }
 

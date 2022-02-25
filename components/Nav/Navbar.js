@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import Burger from "./Burger";
 import { AiOutlineTaobao } from "react-icons/ai";
-import { addToCart } from "../../redux/";
-import { connect } from "react-redux";
+import useCart from "../../hooks/useCart";
+
 
 const Nav = styled.nav`
   width: 100%;
@@ -30,29 +30,21 @@ export const Logo = styled(AiOutlineTaobao)`
   font-size: 30px;
 `;
 
-const Navbar = (props) => {
+const Navbar = () => {
+  const { numberOfItems } = useCart();
+
   return (
     <Nav>
       <Dvent>
         <Logo />
         Merch
       </Dvent>
-      Cart ({props.cart.length})
+      Cart ({numberOfItems})
       <Burger />
     </Nav>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    cart: state.cart,
-  };
-};
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addToCart: () => dispatch(addToCart()),
-  };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default Navbar;
