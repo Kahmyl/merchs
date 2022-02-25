@@ -7,10 +7,12 @@ import Navbar from '../components/Nav/Navbar'
 import { Container } from '../Components/Global'
 import { addToCart } from '../redux';
 import { connect } from 'react-redux';
-import { updateCookieItem } from '../utils/cart';
-import { updateCookieItem } from '../utils/cart'
+import { updateCookieItem, getCartItemsAndTotal, getCart } from '../utils/cart';
+import { useCookies } from "react-cookie";
+
 
 const Home = (props) => {
+  const [cookies, setCookies] = useCookies(['cart', 'number_of_items'])
 
   useEffect(() => {
     axios.get('http://localhost:5000/users')
@@ -26,9 +28,13 @@ const Home = (props) => {
       </div>
       <Container>
         Welcome Home
-        <h3>Cart ({Object.keys(props.cart).length})</h3>
-        <button onClick={() => updateCookieItem(123, 'add')}>Add To Cart</button>
-        <button onClick={() => props.addToCart(193, 'add')}>Add To Cart</button>
+        <h3>Cart ({props.number_of_items})</h3>
+        <button onClick={() => updateCookieItem(123, "add")}>
+          Add To Cart
+        </button>
+        <button onClick={() => updateCookieItem(193, "add")}>
+          Add To Cart
+        </button>
       </Container>
     </div>
   );
@@ -37,7 +43,8 @@ const Home = (props) => {
 
 const mapStateToProps = state => {
   return {
-    cart: state.cart
+    cart: state.cart,
+    number_of_items: state.number_of_items
   }
 }
 

@@ -16,7 +16,7 @@ function getCookie(name) {
   return null;
 }
 
-function getCart() {
+export const getCart = () => {
   var cart = JSON.parse(getCookie("cart"));
 
   if (cart == undefined) {
@@ -45,6 +45,7 @@ export const updateCookieItem = (productId, action) => {
     }
   }
   console.log("Cart", cart);
+  console.log(getCartItemsAndTotal())
   document.cookie = "cart=" + JSON.stringify(cart) + ";domain=;path=/";
 };
 
@@ -54,8 +55,8 @@ export const getCartItemsAndTotal = () => {
   let order = { get_cart_total: 0, get_cart_items: 0 };
 
   for(let x in cart){
-    console.log()
+    console.log(cart[x])
     order["get_cart_items"] += cart[x]['quantity']
   }
-  return order['get_cart_items']
+  return order["get_cart_items"]
 };

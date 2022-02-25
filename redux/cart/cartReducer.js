@@ -1,7 +1,11 @@
+import { getCartItemsAndTotal } from "../../utils/cart";
 import { ADD_TO_CART, REMOVE_FROM_CART } from "./cartTypes"
 
+
 const initialState = {
-    cart: {}
+    cart: {},
+    number_of_items: getCartItemsAndTotal()
+
 }
 
 
