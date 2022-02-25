@@ -1,4 +1,6 @@
 import '../styles/globals.css'
+import { Provider } from 'react-redux'
+import store from '../redux/store';
 import Head from 'next/head'
 
 function MyApp({ Component, pageProps }) {
@@ -7,9 +9,11 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>Merch</title>
       </Head>
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </>
-  )
+  );
 }
 
 export default MyApp
