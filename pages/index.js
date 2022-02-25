@@ -7,6 +7,8 @@ import Navbar from '../components/Nav/Navbar'
 import { Container } from '../Components/Global'
 import { addToCart } from '../redux';
 import { connect } from 'react-redux';
+import { updateCookieItem } from '../utils/cart';
+import { updateCookieItem } from '../utils/cart'
 
 const Home = (props) => {
 
@@ -25,8 +27,8 @@ const Home = (props) => {
       <Container>
         Welcome Home
         <h3>Cart ({Object.keys(props.cart).length})</h3>
-        <button onClick={() => props.addToCart(123)}>Add To Cart</button>
-        <button onClick={() => props.addToCart(192)}>Add To Cart</button>
+        <button onClick={() => updateCookieItem(123, 'add')}>Add To Cart</button>
+        <button onClick={() => props.addToCart(193, 'add')}>Add To Cart</button>
       </Container>
     </div>
   );
