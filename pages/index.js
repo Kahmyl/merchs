@@ -12,7 +12,8 @@ import { useCookies } from "react-cookie";
 
 
 const Home = (props) => {
-  const [cookies, setCookies] = useCookies(['cart', 'number_of_items'])
+  const [cookies, setCookies] = useCookies(['cart'])
+  
 
   useEffect(() => {
     axios.get('http://localhost:5000/users')
