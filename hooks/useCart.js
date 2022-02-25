@@ -1,25 +1,7 @@
 import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 
-// export const addToCart = (productId, action) => {
-//   let cart = getCart();
-//   if (action == "add") {
-//     if (cart[productId] == undefined) {
-//       cart[productId] = { quantity: 1 };
-//     } else {
-//       cart[productId]["quantity"] += 1;
-//     }
-//   }
-
-//   if (action == "remove") {
-//     cart[productId]["quantity"] -= 1;
-//     if (cart[productId]["quantity"] <= 0) {
-//       console.log("remove product");
-//       delete cart[productId];
-//     }
-//   }
-// }
-  function useCart() {
+function useCart() {
     const [cookies, setCookies] = useCookies(["cart"]);
     const [numberOfItems, setNumberOfItems] = useState(0);
     const getCart = () => {
