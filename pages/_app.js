@@ -6,10 +6,11 @@ import Head from 'next/head'
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Head>
-        <title>Merch</title>
-      </Head>
       <Provider store={store}>
+        <Head>
+          <title>Merch</title>
+        </Head>
+
         <Component {...pageProps} />
       </Provider>
     </>

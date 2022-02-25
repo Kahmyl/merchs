@@ -10,13 +10,19 @@ const cartReducer = (state = initialState, action) => {
             // checks the cart array for a unique product id. If id does not exist yet, it adds id to the array and gives it 
             // an object with a quantity of 1. If id already exists in array it updates the quantity
             const newArray = []
-            if (cart[action.payload] === undefined) {
-                cart[action.payload] = {'quantity':1}
-                newArray.push(cart[action.payload])
+            console.log(action.payload)
+            console.log(state)
+            if (state.cart[action.payload] === undefined) {
+                console.log("Not found")
+                state.cart[action.payload] = {'quantity':1}
+                console.log(newArray, state.cart[action.payload]);
+                newArray.push(state.cart[action.payload])
+                console.log(newArray)
             }else{
-                cart[action.payload]['quantity'] += 1
-                console.log(cart[action.payload])
-                newArray.push(cart[action.payload])
+                state.cart[action.payload]['quantity'] += 1
+                console.log(state.cart[action.payload])
+                newArray.push(state.cart[action.payload])
+                console.log(newArray)
             }
             return {
                 ...state, 
