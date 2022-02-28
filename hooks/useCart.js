@@ -15,13 +15,14 @@ function useCart() {
       return cart;
     };
 
-    const addToCart = (productId, action) => {
-        console.log(productId, action)
+    const addToCart = (productId, action, product) => {
+      console.log(productId, action)
       let cart = getCart();
       if (action == "add") {
         if (cart[productId] == undefined) {
             console.log("Add undefinded")
-          cart[productId] = { quantity: 1 };
+            console.log(product)
+          cart[productId] = { quantity: 1, product: product};
         } else {
             console.log("Add definded");
             cart[productId]["quantity"] += 1;
@@ -48,7 +49,11 @@ function useCart() {
       for (let x in cart) {
         console.log(cart[x]);
         order["get_cart_items"] += cart[x]["quantity"];
+        let total = cart[x]["product"]["price"] * cart[x]["quantity"]
+        console.log(total)
+        order["get_cart_total"] += total
       }
+      console.log(order["get_cart_total"])
       return order["get_cart_items"];
     };
 

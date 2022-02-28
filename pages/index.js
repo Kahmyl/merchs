@@ -39,7 +39,7 @@ const Home = (props) => {
           return (<div key={product.id}>
             <img src={product.image} alt="{product.id}"/>
             <h3>{product.name}</h3>
-            <button onClick={() => addToCart(product.id, 'add')}>Add to Cart</button>
+            <button onClick={() => addToCart(product.id, 'add', product)}>Add to Cart</button>
           </div>)
         })}
       </Container>
