@@ -3,10 +3,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import Navbar from "../components/Nav/Navbar";
 import { Container } from "../Components/Global";
 import useCart from "../hooks/useCart";
 import Product from "../components/Product.js";
+import Carousel from "../components/Carousel/Carousel.js"
+
 
 const Home = (props) => {
   const { numberOfItems } = useCart();
@@ -34,8 +37,9 @@ const Home = (props) => {
       <div>
         <Navbar />
       </div>
+      <Carousel />
+
       <Container>
-        Welcome Home
         <h3>Cart ({numberOfItems})</h3>
         {products.map((product) => {
           return <Product key={product.id} product={product} />;

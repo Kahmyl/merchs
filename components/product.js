@@ -8,7 +8,7 @@ function Product({ product }) {
     <>
       <div className="product">
         <div className="product-img">
-          <img src={product.image} alt="{props.id}" />
+          <img src={product.image} alt="{props.id}"/>
         </div>
         <div className="product-body">
           <p className="product-category">Category</p>
@@ -20,8 +20,7 @@ function Product({ product }) {
           <h4 className="product-price">${product.price}</h4>
           <button
             className="add-to-cart-btn"
-            onClick={() => addToCart(product.id, "add", product)}
-          >
+            onClick={() => addToCart(product.id, "add", product)}>
             <i className="fa fa-shopping-cart"></i> Add to cart
           </button>
         </div>
