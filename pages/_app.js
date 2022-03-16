@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import '../styles/product.css';
 import { CookiesProvider } from "react-cookie";
 import Head from 'next/head'
 

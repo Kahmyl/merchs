@@ -6,6 +6,7 @@ import styles from "../styles/Home.module.css";
 import Navbar from "../components/Nav/Navbar";
 import { Container } from "../Components/Global";
 import useCart from "../hooks/useCart";
+import Product from "../components/Product.js";
 
 const Home = (props) => {
   const { numberOfItems, addToCart } = useCart();
@@ -43,6 +44,11 @@ const Home = (props) => {
           </div>)
         })}
       </Container>
+      <div>
+      <Product>
+        
+      </Product>
+      </div>
     </div>
   );
 };

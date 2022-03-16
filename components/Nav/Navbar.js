@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Burger from "./Burger";
 import { AiOutlineTaobao } from "react-icons/ai";
-import useCart from "../../hooks/useCart";
 
 
 const Nav = styled.nav`
@@ -31,7 +30,6 @@ export const Logo = styled(AiOutlineTaobao)`
 `;
 
 const Navbar = () => {
-  const { numberOfItems } = useCart();
 
   return (
     <Nav>
@@ -39,7 +37,6 @@ const Navbar = () => {
         <Logo />
         Merch
       </Dvent>
-      Cart ({numberOfItems})
       <Burger />
     </Nav>
   );

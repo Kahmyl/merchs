@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { useContext } from 'react';
 import Link from 'next/link'
 import Router from 'next/router'
+import useCart from "../../hooks/useCart";
 
 const Ul = styled.ul`
   list-style: none;
@@ -44,12 +45,12 @@ const RightNav = ({ open }) => {
       Router.reload()
     })
   }
-
+  const { numberOfItems } = useCart();
     return (
       <Ul open={open}>
         <li><Link href="/"><a>Home</a></Link></li>
         <li><Link href="/store"><a>Store</a></Link></li>
-        <li><Link href="/cart"><a>Cart</a></Link></li>
+        <li><Link href="/cart"><a>Cart ({numberOfItems})</a></Link></li>
         <li><Link href="/contact"><a>Contact us</a></Link></li>
         <li><Link href="/users/login"><a>Sign In</a></Link></li>
         <li><Link href="/users"><a> Sign Up </a></Link></li>

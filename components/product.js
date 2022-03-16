@@ -1,14 +1,23 @@
-import React from 'react' 
-import '/styles/product.css'
+import React from 'react';
 
-function product() {
+function Product() {
     return (
-        <div class="card">
-            <img src="{{ image.url }}">
-            <h5>{{ title }}</h5>
-            <button class="toggle-cart">Add to cart</button>
+        <>
+        <div className="product">
+            <div className="product-img">
+                <img src="../img/image1.webp" alt="log" />
+            </div>
+            <div className="product-body">
+                <p className="product-category">Category</p>
+                <h3 className="product-name"><a href="#">Product name goes here</a></h3>
+            </div>
+            <div className="add-to-cart">
+                <h4 className="product-price">$980.00</h4>
+                <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> Add to cart</button>
+            </div>
         </div>
+        </>
     )
 }
 
-export default product
+export default Product
