@@ -9,19 +9,20 @@ import useCart from "../hooks/useCart";
 import Product from "../components/Product.js";
 
 const Home = (props) => {
-  const { numberOfItems, addToCart } = useCart();
-  const [products, setProducts] = useState([])
+  const { numberOfItems } = useCart();
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/store/products")
-    .then(response => {
-      console.log(response.data)
-      setProducts(response.data.items)
-      console.log(products)
-    })
-    .catch(error => {
-      console.log(error)
-    })
+    axios
+      .get("http://localhost:5000/api/store/products")
+      .then((response) => {
+        console.log(response.data);
+        setProducts(response.data.items);
+        console.log(products);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   return (
@@ -29,26 +30,18 @@ const Home = (props) => {
       <Head>
         <title>Merchs</title>
       </Head>
-      
+
       <div>
         <Navbar />
       </div>
       <Container>
         Welcome Home
         <h3>Cart ({numberOfItems})</h3>
-        {products.map(product => {
-          return (<div key={product.id}>
-            <img src={product.image} alt="{product.id}"/>
-            <h3>{product.name}</h3>
-            <button onClick={() => addToCart(product.id, 'add', product)}>Add to Cart</button>
-          </div>)
+        {products.map((product) => {
+          return <Product key={product.id} product={product} />;
         })}
       </Container>
-      <div>
-      <Product>
-        
-      </Product>
-      </div>
+      <div></div>
     </div>
   );
 };
