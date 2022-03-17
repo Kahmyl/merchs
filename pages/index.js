@@ -8,7 +8,7 @@ import { Container } from "../Components/Global";
 import useCart from "../hooks/useCart";
 import Product from "../components/Product.js";
 import Carousel from "../components/Carousel/Carousel.js"
-
+import Category from "../components/Category.js"
 
 const Home = (props) => {
   const { numberOfItems } = useCart();
@@ -28,24 +28,23 @@ const Home = (props) => {
   }, []);
 
   return (
-    <>
+    <div>
       <Head>
         <title>Merchs</title>
       </Head>
       <Navbar />
-      
       <div className="main-body">
-        <div>
-          <Carousel />
-        </div>
+        <Carousel />
+
         <Container>
-          <h3>Cart ({numberOfItems})</h3>
+          {/* <h3>Cart ({numberOfItems})</h3> */}
           {products.map((product) => {
             return <Product key={product.id} product={product} />;
           })}
         </Container>
+        <Category />
       </div>
-    </>
+    </div>
   );
 };
 

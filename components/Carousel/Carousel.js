@@ -14,16 +14,25 @@ const Hero = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
-
+  display:block;
+ 
   div {
     text-align: center;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
+    top: 30%;
+    left: 25%;
+    transform: translate(-30%, -25%);
+    background: rgba(256, 256, 256, 0.8);
+    color: black;
+    padding: 15px 50px;
+    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
+  h1 {
+    margin-bottom: 5px;
+  }
+  small {display:block;
+    color: grey; 
+    margin-bottom: 15px;}
   button {
     border: none;
     outline: 0;
@@ -33,6 +42,7 @@ const Hero = styled.div`
     background-color: #ddd;
     text-align: center;
     cursor: pointer;
+    font-weight: 600;
   }
   
   button:hover {
@@ -41,7 +51,9 @@ const Hero = styled.div`
   }
   @media (max-width: 576px) {
     div {
-
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
   `
@@ -51,9 +63,9 @@ export default function Carousel() {
     <>
       <Hero>
         <div>
-          <h1>I am John Doe</h1>
-          <p>And I'm a Photographer</p>
-          <button>Hire me</button>
+          <h1>25% off all products</h1>
+          <small>*offer runs while stocks last</small>
+          <button>Shop now</button>
         </div>  
       </Hero>
     </>
