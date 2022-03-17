@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import Navbar from "../components/Nav/Navbar";
 import { Container } from "../Components/Global";
 import useCart from "../hooks/useCart";
@@ -29,24 +28,24 @@ const Home = (props) => {
   }, []);
 
   return (
-    <div>
+    <>
       <Head>
         <title>Merchs</title>
       </Head>
-
-      <div>
-        <Navbar />
+      <Navbar />
+      
+      <div className="main-body">
+        <div>
+          <Carousel />
+        </div>
+        <Container>
+          <h3>Cart ({numberOfItems})</h3>
+          {products.map((product) => {
+            return <Product key={product.id} product={product} />;
+          })}
+        </Container>
       </div>
-      <Carousel />
-
-      <Container>
-        <h3>Cart ({numberOfItems})</h3>
-        {products.map((product) => {
-          return <Product key={product.id} product={product} />;
-        })}
-      </Container>
-      <div></div>
-    </div>
+    </>
   );
 };
 

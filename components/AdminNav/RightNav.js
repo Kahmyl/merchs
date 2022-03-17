@@ -28,9 +28,6 @@ const Ul = styled.ul`
   }
 `;
 
-
-
-
 const RightNav = ({ open }) => {
   // const user = useContext(UserContext);
 

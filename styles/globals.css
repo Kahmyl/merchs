@@ -9,10 +9,14 @@ body {
 }
 
 a {
-  color: inherit;
+  color: #222222;
   text-decoration: none;
 }
 
 * {
   box-sizing: border-box;
+}
+.main-body {
+  width: 80%;
+  margin: auto;
 }
